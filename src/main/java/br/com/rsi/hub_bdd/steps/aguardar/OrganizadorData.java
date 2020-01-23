@@ -1,4 +1,4 @@
-package br.com.rsi.hub_bdd.stpes.utils;
+package br.com.rsi.hub_bdd.steps.aguardar;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;

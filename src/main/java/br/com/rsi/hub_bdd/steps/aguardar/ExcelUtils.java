@@ -1,4 +1,4 @@
-package br.com.rsi.hub_bdd.stpes.utils;
+package br.com.rsi.hub_bdd.steps.aguardar;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

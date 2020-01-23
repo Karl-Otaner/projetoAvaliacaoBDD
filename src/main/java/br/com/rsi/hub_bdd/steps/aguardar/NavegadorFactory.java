@@ -1,4 +1,4 @@
-package br.com.rsi.hub_bdd.steps.pagefactory;
+package br.com.rsi.hub_bdd.steps.aguardar;
 
 import java.util.concurrent.TimeUnit;
 
