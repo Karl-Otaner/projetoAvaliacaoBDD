@@ -8,13 +8,14 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "Feature1", 
+			glue = { "stepDefinition" },
 				plugin = "pretty",
 				monochrome = true,
 				snippets = SnippetType.CAMELCASE,
-				dryRun = false,
+				dryRun = true,
 				strict = false,
+				tags = {"@Falha, @Sucesso"}
 				
-							glue = { "stepDefinition" }
 						
 							
 							)
