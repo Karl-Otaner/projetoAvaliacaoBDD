@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -50,32 +51,37 @@ public abstract class Test_Steps {
 	}
 
 	@Quando("^Preencher formulario de cadastro$")
-	public void preencherFormularioDeCadastro() throws Throwable {
-		driver.findElement(By.name("usernameRegisterPage")).sendKeys("Karl_Otaner107");
+//	public void preencherFormularioDeCadastro(DataTable dados) throws Throwable {
+		public void preencherFormularioDeCadastro(List<DadosCadastro> usedados) throws Throwable {
+//		for (Map<String, String> dado : dados.asMaps(String.class, String.class)) {
+		for (DadosCadastro dados : usedados) {
+		driver.findElement(By.name("usernameRegisterPage")).sendKeys(dados.getUsername());
 
-		driver.findElement(By.name("emailRegisterPage")).sendKeys("carlos.silva@rsinet.com.br");
+		driver.findElement(By.name("emailRegisterPage")).sendKeys(dados.getEmail());
 
-		driver.findElement(By.name("passwordRegisterPage")).sendKeys("Aa123456");
+		driver.findElement(By.name("passwordRegisterPage")).sendKeys(dados.getSenha());
 
-		driver.findElement(By.name("confirm_passwordRegisterPage")).sendKeys("Aa123456");
+		driver.findElement(By.name("confirm_passwordRegisterPage")).sendKeys(dados.getConfSenha());
 
-		driver.findElement(By.name("first_nameRegisterPage")).sendKeys("Karl");
+		driver.findElement(By.name("first_nameRegisterPage")).sendKeys(dados.getPrimeiroNome());
 
-		driver.findElement(By.name("last_nameRegisterPage")).sendKeys("Otaner");
+		driver.findElement(By.name("last_nameRegisterPage")).sendKeys(dados.getUltimoNome());
 
-		driver.findElement(By.name("phone_numberRegisterPage")).sendKeys("55 11 1234567");
+		driver.findElement(By.name("phone_numberRegisterPage")).sendKeys(dados.getTelefone());
 
 		Select drpPais = new Select(driver.findElement(By.name("countryListboxRegisterPage")));
-		drpPais.selectByVisibleText("Brazil");
+		drpPais.selectByVisibleText(dados.getPais());
 
-		driver.findElement(By.name("cityRegisterPage")).sendKeys("Osasco");
+		driver.findElement(By.name("cityRegisterPage")).sendKeys(dados.getCidade());
 
-		driver.findElement(By.name("addressRegisterPage")).sendKeys("Av. Domingos Odália Filho, 301 - Centro");
+		driver.findElement(By.name("addressRegisterPage")).sendKeys(dados.getEndereco());
 
-		driver.findElement(By.name("state_/_province_/_regionRegisterPage")).sendKeys("SAO PAULO");
-
-		driver.findElement(By.name("postal_codeRegisterPage")).sendKeys("06010-060");
+		driver.findElement(By.name("state_/_province_/_regionRegisterPage")).sendKeys(dados.getEstado());
+		
+		driver.findElement(By.name("postal_codeRegisterPage")).sendKeys(dados.getCEP());
 		driver.findElement(By.name("i_agree")).click();
+		
+		}
 		
 	}
 
