@@ -19,12 +19,12 @@ public class Gerenciador_Driver {
 
 	public static WebDriver abreSite() {
 
-		if (driver == null) {
+		
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.get("http://www.advantageonlineshopping.com/#/");
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		}
+		
 		return driver;
 
 	}

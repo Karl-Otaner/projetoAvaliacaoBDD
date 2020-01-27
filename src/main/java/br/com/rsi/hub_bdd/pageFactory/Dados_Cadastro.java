@@ -10,20 +10,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-
 public class Dados_Cadastro {
-	 WebDriver Driver;
+	WebDriver Driver;
 
 	public Dados_Cadastro(WebDriver driver) {
 		this.Driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 //	private WebDriverWait wait;
 //	private Select select;
-	
-	
 
 	@FindBy(how = How.NAME, using = "usernameRegisterPage")
 	private WebElement userName;
@@ -66,19 +62,24 @@ public class Dados_Cadastro {
 
 	@FindBy(how = How.ID, using = "register_btnundefined")
 	private WebElement btnUnderfined;
-	
+
 	@FindBy(how = How.NAME, using = "username")
 	private WebElement login;
-	
+
 	@FindBy(how = How.NAME, using = "password")
 	private WebElement senha;
-	
+
 	@FindBy(how = How.ID, using = "sign_in_btnundefined")
 	private WebElement signin;
 	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"registerPage\"]/article/sec-form/div[2]/label[1]")
+	private WebElement usuarioCadastrado;
+
+	
+
 	public void preencherCadastro() {
-		
-		userName.sendKeys("Karl121");
+
+		userName.sendKeys("Karl129");
 		userEmail.sendKeys("karl@com.br");
 		userPassword.sendKeys("Aa12345");
 		confirmUserPassword.sendKeys("Aa12345");
@@ -97,13 +98,9 @@ public class Dados_Cadastro {
 		JavascriptExecutor js = (JavascriptExecutor) Driver;
 		js.executeScript("arguments[0].click();", btnUnderfined);
 	}
-	
-	public void loginSenha() {
-		login.sendKeys("Usuario");
-		senha.sendKeys("Ab123");
-		WebDriverWait wait = new WebDriverWait(Driver, 10);
-		wait.until(ExpectedConditions.visibilityOf(signin));
-		
-	}
 
+	public String msgCadastro() {
+		return usuarioCadastrado.getText();
+	
+	}
 }

@@ -8,10 +8,10 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions
 (features = "Feature", 
-//				glue = { "br.com.rsi.hub_bdd.stepDefinition" },
-				monochrome = true
+				glue = { "br.com.rsi.hub_bdd.stepDefinition" },
+				monochrome = true,
 //						dryRun = true,
-//						tags = {"@Sucesso", "@Falha"}	
+					tags = {"@Sucesso", "@Falha"}	
 )
 
 						
