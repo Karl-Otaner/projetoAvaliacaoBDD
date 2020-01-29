@@ -1,4 +1,4 @@
-package br.com.rsi.hub_bdd.pageFactory;
+package br.com.rsi.hub_bdd.pageObject;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -18,8 +18,6 @@ public class Dados_Cadastro {
 		PageFactory.initElements(driver, this);
 	}
 
-//	private WebDriverWait wait;
-//	private Select select;
 
 	@FindBy(how = How.NAME, using = "usernameRegisterPage")
 	private WebElement userName;
@@ -79,7 +77,7 @@ public class Dados_Cadastro {
 
 	public void preencherCadastro() {
 
-		userName.sendKeys("Karl129");
+		userName.sendKeys("Karl132");
 		userEmail.sendKeys("karl@com.br");
 		userPassword.sendKeys("Aa12345");
 		confirmUserPassword.sendKeys("Aa12345");

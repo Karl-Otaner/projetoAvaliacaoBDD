@@ -3,6 +3,7 @@ package br.com.rsi.hub_bdd.runners;
 import org.junit.runner.RunWith;
 
 import cucumber.api.CucumberOptions;
+import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
@@ -10,8 +11,10 @@ import cucumber.api.junit.Cucumber;
 (features = "Feature", 
 				glue = { "br.com.rsi.hub_bdd.stepDefinition" },
 				monochrome = true,
+				plugin =  "pretty",
+				snippets = SnippetType.CAMELCASE,
 //						dryRun = true,
-					tags = {"@Sucesso", "@Falha"}	
+					tags = {"@Buscadeproduto", "@Valido"}	
 )
 
 						
